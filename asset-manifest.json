@@ -1,16 +1,15 @@
 {
   "files": {
-    "main.css": "/jaya-resume/static/css/main.f855e6bc.css",
-    "main.js": "/jaya-resume/static/js/main.9e7edebd.js",
+    "main.css": "/jaya-resume/static/css/main.e6c13ad2.css",
+    "main.js": "/jaya-resume/static/js/main.5057acbf.js",
     "static/js/787.754eb24c.chunk.js": "/jaya-resume/static/js/787.754eb24c.chunk.js",
-    "static/media/logo.svg": "/jaya-resume/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
     "index.html": "/jaya-resume/index.html",
-    "main.f855e6bc.css.map": "/jaya-resume/static/css/main.f855e6bc.css.map",
-    "main.9e7edebd.js.map": "/jaya-resume/static/js/main.9e7edebd.js.map",
+    "main.e6c13ad2.css.map": "/jaya-resume/static/css/main.e6c13ad2.css.map",
+    "main.5057acbf.js.map": "/jaya-resume/static/js/main.5057acbf.js.map",
     "787.754eb24c.chunk.js.map": "/jaya-resume/static/js/787.754eb24c.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.f855e6bc.css",
-    "static/js/main.9e7edebd.js"
+    "static/css/main.e6c13ad2.css",
+    "static/js/main.5057acbf.js"
   ]
 }
