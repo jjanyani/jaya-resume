@@ -1,17 +1,18 @@
 {
   "files": {
-    "main.css": "/jaya-resume/static/css/main.e6c13ad2.css",
-    "main.js": "/jaya-resume/static/js/main.b472fd0c.js",
+    "main.css": "/jaya-resume/static/css/main.2c5864be.css",
+    "main.js": "/jaya-resume/static/js/main.bf6de7a9.js",
     "static/js/787.754eb24c.chunk.js": "/jaya-resume/static/js/787.754eb24c.chunk.js",
-    "static/media/parallax3.jpg": "/jaya-resume/static/media/parallax3.1a89e3497f0c238f58a9.jpg",
-    "static/media/parallax2.jpg": "/jaya-resume/static/media/parallax2.af1c3c03fa5059f4098a.jpg",
+    "static/media/parallax9.jpg": "/jaya-resume/static/media/parallax9.5659b36159ce329c61e8.jpg",
+    "static/media/Jaya.jpg": "/jaya-resume/static/media/Jaya.ddf3740adb8c67d6f5d4.jpg",
+    "static/media/JJ.png": "/jaya-resume/static/media/JJ.cb06d7b4863a9913dba5.png",
     "index.html": "/jaya-resume/index.html",
-    "main.e6c13ad2.css.map": "/jaya-resume/static/css/main.e6c13ad2.css.map",
-    "main.b472fd0c.js.map": "/jaya-resume/static/js/main.b472fd0c.js.map",
+    "main.2c5864be.css.map": "/jaya-resume/static/css/main.2c5864be.css.map",
+    "main.bf6de7a9.js.map": "/jaya-resume/static/js/main.bf6de7a9.js.map",
     "787.754eb24c.chunk.js.map": "/jaya-resume/static/js/787.754eb24c.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.e6c13ad2.css",
-    "static/js/main.b472fd0c.js"
+    "static/css/main.2c5864be.css",
+    "static/js/main.bf6de7a9.js"
   ]
 }
