@@ -1,19 +1,38 @@
 
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Roboto', sans-serif;
+  /* You can adjust the font size, weight, and other styles as needed */
+}
+
+
 .static-image {
   position: absolute;
-  width: 110px;
-  height: 110px;
+  width: 140px;
+  height: 140px;
   object-fit: cover;
   border-radius: 50%; /* Make the image round */
   z-index: 2;
+  border-style: none;
+}
+
+.static-icon-image {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+ 
 }
 
 .pulse {
   position: relative;
-  width: 110px;
-  height: 110px;
+  width: 140px;
+  height: 140px;
   border-radius: 50%;
-  background: #D60093; /* Set the color of the pulse effect */
+  background: white; /* Set the color of the pulse effect */
   object-fit: cover;
   z-index: 1;
 }
@@ -25,7 +44,7 @@
   border-radius: inherit;
   background: inherit; /* Set the color of the pulse effect */
   animation: pulse-animation  4s ease-out infinite; 
-  opacity: .10;
+  opacity: .20;
   animation-delay: calc(1s *var(--i));
 }
 @keyframes pulse-animation {
