@@ -227,15 +227,19 @@ function App() {
       e.preventDefault();
       setBackOpen(true);
       try {
-        const response = await fetch("http://localhost:5000/api/send-email", {
+        // const response = await fetch("http://localhost:5000/api/send-email", {
+        const response = await fetch(" https://sore-gold-bison-wig.cyclic.app", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
           body: JSON.stringify(formData),
         });
+
         if (!response.ok) {
+          setBackOpen(false);
           throw new Error(`HTTP error! Status: ${response.status}`);
+        
         } else {
           // const responseText = await response.text();
 
@@ -243,6 +247,7 @@ function App() {
           setBackOpen(false);
         }
       } catch (error) {
+        setBackOpen(false);
         console.error("Error sending email", error);
       }
     } else {
