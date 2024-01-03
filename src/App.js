@@ -3,7 +3,6 @@ import {
   AppBar,
   Toolbar,
   Typography,
-  Container,
   Drawer,
   List,
   ListItem,
@@ -19,6 +18,7 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { Parallax } from "react-parallax";
 import CssBaseline from "@mui/material/CssBaseline";
 import img3 from "./images/parallax1.jpg";
+import img5 from "./images/parallax2.jpg";
 import img1 from "./images/JJ.png";
 import img2 from "./images/Jaya.png";
 import img4 from "./images/hospet.jpg";
@@ -29,6 +29,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Stack from "@mui/material/Stack";
 import { styled, useTheme } from "@mui/material/styles";
 import "./css/rippleanimation.css";
+import "./css/about.css";
 import Divider from "@mui/material/Divider";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
@@ -48,6 +49,11 @@ import Backdrop from "@mui/material/Backdrop";
 import CircularProgress from "@mui/material/CircularProgress";
 import KeyboardDoubleArrowUpIcon from "@mui/icons-material/KeyboardDoubleArrowUp";
 import Fab from "@mui/material/Fab";
+import About from "./About";
+import Skills from "./Skills";
+import Zoom from "@mui/material/Zoom";
+
+
 
 const Alert = React.forwardRef(function Alert(props, ref) {
   return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
@@ -67,32 +73,71 @@ function App() {
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [snackopen, setSnackOpen] = React.useState(false);
   const [backOpen, setBackOpen] = React.useState(false);
+  const [contactView, setcontactView] = React.useState(false);
   const defaultTheme = createTheme();
   const theme = useTheme();
-  const footerRef = useRef(null);
+  const contactRef = useRef(null);
+  const aboutRef = useRef(null);
+  const skillsRef = useRef(null);
   const [isVisible, setIsVisible] = useState("hidden");
 
-  // useEffect(() => {
-  //   // Add a scroll event listener
 
-  //   const handleScroll = () => {
-  //     // Set isVisible based on the scroll position
-  //     setIsVisible(window.scrollY > 100); // Adjust the threshold value as needed
-  //   };
+  
+  useEffect(() => {
+    const handleScroll = () => {
+      const elementTop = aboutRef.current.getBoundingClientRect().top;
+      const windowHeight = window.innerHeight;
 
-  //   window.addEventListener("scroll", handleScroll);
+      if (elementTop < windowHeight * 0.75) {
+        // Add the animation class when the element is 75% visible
+        aboutRef.current.classList.add('slide-in');
+      } else {
+        // Remove the animation class when it's no longer in view
+        aboutRef.current.classList.remove('slide-in');
+      }
+    };
 
-  //   // Remove the event listener when the component unmounts
-  //   return () => {
-  //     window.removeEventListener("scroll", handleScroll);
-  //   };
-  // }, []);
+    window.addEventListener('scroll', handleScroll);
+
+    // Cleanup event listener on component unmount
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const elementTop = contactRef.current.getBoundingClientRect().top;
+      const windowHeight = window.innerHeight;
+
+      if (elementTop < windowHeight * 0.75) {
+       setcontactView(true)
+      } else {
+        setcontactView(false)
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    // Cleanup event listener on component unmount
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
       behavior: "smooth",
     });
+  };
+
+  const handleDownload = () => {
+    const cvUrl =
+      "https://drive.google.com/file/d/1MlW3CCohgPSk2gitY5yIaBEOytigO1R7/view?usp=drive_link";
+
+    // Open the CV file in a new tab
+    window.open(cvUrl, "_blank");
   };
 
   useEffect(() => {
@@ -124,7 +169,7 @@ function App() {
     setDrawerOpen(!drawerOpen);
   };
 
-  const pages = ["About", "Skills", "Portfolio", "Experience", "Contact"];
+  const pages = ["About", "Skills", "Experience", "Education", "Activities", "Contact"];
 
   const ColorButton = styled(Button)(({ theme }) => ({
     color: "white",
@@ -158,13 +203,18 @@ function App() {
   };
 
   const handlePageClick = (page) => {
-    if (page === "Contact" && footerRef.current) {
-      const formPosition = footerRef.current.offsetTop - 60; // Adjust as needed
+    if (page === "Contact" && contactRef.current) {
+      const formPosition = contactRef.current.offsetTop - 70; // Adjust as needed
       window.scrollTo({ top: formPosition, behavior: "smooth" });
-    } else {
-      // Handle other page clicks if needed
+    } else if (page === "About" && aboutRef.current) {
+      const formPosition = aboutRef.current.offsetTop - 100; // Adjust as needed
+      aboutRef.current.classList.add('slide-in');
+      window.scrollTo({ top: formPosition, behavior: "smooth" });
+    }else if (page === "Skills" && skillsRef.current) {
+      const formPosition = skillsRef.current.offsetTop - 100; // Adjust as needed
+      window.scrollTo({ top: formPosition, behavior: "smooth" });
     }
-  };
+  }; 
 
   const [formData, setFormData] = useState({
     name: "",
@@ -227,19 +277,21 @@ function App() {
       e.preventDefault();
       setBackOpen(true);
       try {
-        // const response = await fetch("http://localhost:5000/api/send-email", {
-        const response = await fetch(" https://sore-gold-bison-wig.cyclic.app", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(formData),
-        });
+        const response = await fetch(
+          "https://jjbackend.onrender.com/api/send-email",
+          {
+            // const response = await fetch(" https://sore-gold-bison-wig.cyclic.app", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(formData),
+          }
+        );
 
         if (!response.ok) {
           setBackOpen(false);
           throw new Error(`HTTP error! Status: ${response.status}`);
-        
         } else {
           // const responseText = await response.text();
 
@@ -268,6 +320,17 @@ function App() {
     </React.Fragment>
   );
 
+  const about = {
+    title: "About",
+    description:
+    "Hello! I'm Jaya Janyani, a tech enthusiast with a bachelor's degree in Information Technology from Solapur University, Maharashtra. Eager to contribute my skills in Bangalore/Pune.",
+    image: img5,
+    imageText: "main image description",
+    linkText: "",
+  };
+
+ 
+  
   return (
     <ThemeProvider theme={defaultTheme}>
       <CssBaseline />
@@ -294,6 +357,7 @@ function App() {
                       height: "50px",
                       marginLeft: "normal",
                     }}
+                    onClick={scrollToTop}
                   />
                 </IconButton>
               </Grid>
@@ -438,7 +502,9 @@ function App() {
             >
               Hire Me
             </ColorButton>
-            <ColorButton variant="contained">Download CV</ColorButton>
+            <ColorButton variant="contained" onClick={handleDownload}>
+              Download CV
+            </ColorButton>
           </Stack>
         </div>
         <Fab
@@ -457,16 +523,27 @@ function App() {
         </Fab>
       </Parallax>
 
-      <Container maxWidth="xl">
+      {/* <Container maxWidth="xl">
         <div>
           <Typography variant="h4" component="div" style={{ marginTop: 40 }}>
             Regular Content Section
           </Typography>
           <p>Your regular content goes here.</p>
         </div>
-      </Container>
+      </Container> */}
 
-      <div ref={footerRef} style={{ marginTop: 50 }}>
+      {/* About Section */}
+      <div ref={aboutRef} style={{ marginTop: 40 }} className="swipe-in">
+        <About post={about} />
+      </div>
+      
+      {/* Skills Section */}
+      <div ref={skillsRef} style={{ marginTop: 40 }}>
+        <Skills  />
+      </div>
+
+      {/* Contact Section */}
+      <div ref={contactRef} style={{ marginTop: 50 }}>
         <Parallax bgImage={img3} strength={300} blur={3}>
           <Typography
             variant="h4"
@@ -481,8 +558,10 @@ function App() {
             justifyContent="center"
             sx={{ marginBottom: 4 }}
           >
+             <Zoom in={contactView} timeout={800}>
             <Grid item xs={12} sm={8} md={5}>
-              <Card sx={{ display: "flex", height: "100%" }}>
+
+              <Card sx={{ display: "flex", height: "100%" }} className="zoom-in">
                 <CardContent>
                   <form onSubmit={handleSubmit}>
                     <TextField
@@ -597,8 +676,10 @@ function App() {
                 </CardContent>
               </Card>
             </Grid>
+            </Zoom>
+            <Zoom in={contactView} timeout={800} style={{ transitionDelay: "300ms" }}>     
             <Grid item xs={12} sm={8} md={5}>
-              <Card sx={{ display: "flex", height: "100%" }}>
+              <Card sx={{ display: "flex", height: "100%" }} className="zoom-in">
                 <CardActionArea>
                   <CardMedia
                     component="img"
@@ -616,7 +697,7 @@ function App() {
                       </Typography>
                       <Typography variant="body2" color="text.secondary">
                         House# 29/30, Cake Zone building, Cowlpete, Hosapete -
-                        583201
+                        583201, Karnataka, India
                       </Typography>
 
                       <Typography
@@ -643,6 +724,7 @@ function App() {
                 </CardActionArea>
               </Card>
             </Grid>
+            </Zoom>
           </Grid>
         </Parallax>
       </div>

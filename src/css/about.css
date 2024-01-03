@@ -1,0 +1,16 @@
+/* AnimatedDiv.css or your styles file */
+@keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .slide-in {
+    animation: slideIn 1s ease-out; /* Adjust the duration and easing as needed */
+  }
+  
