@@ -9,10 +9,6 @@ import {
   ListItemText,
   ListItemButton,
   Grid,
-  Card,
-  CardContent,
-  TextField,
-  InputAdornment,
 } from "@mui/material";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { Parallax } from "react-parallax";
@@ -21,7 +17,6 @@ import img3 from "./images/parallax1.jpg";
 import img5 from "./images/parallax2.jpg";
 import img1 from "./images/JJ.png";
 import img2 from "./images/Jaya.png";
-import img4 from "./images/hospet.jpg";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
@@ -36,28 +31,11 @@ import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
-import EmailIcon from "@mui/icons-material/Email";
-import PersonIcon from "@mui/icons-material/Person";
-import SubjectIcon from "@mui/icons-material/Subject";
-import MessageIcon from "@mui/icons-material/Message";
-import CardMedia from "@mui/material/CardMedia";
-import { CardActionArea } from "@mui/material";
-import Snackbar from "@mui/material/Snackbar";
-import CloseIcon from "@mui/icons-material/Close";
-import MuiAlert from "@mui/material/Alert";
-import Backdrop from "@mui/material/Backdrop";
-import CircularProgress from "@mui/material/CircularProgress";
 import KeyboardDoubleArrowUpIcon from "@mui/icons-material/KeyboardDoubleArrowUp";
 import Fab from "@mui/material/Fab";
 import About from "./About";
 import Skills from "./Skills";
-import Zoom from "@mui/material/Zoom";
-
-
-
-const Alert = React.forwardRef(function Alert(props, ref) {
-  return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
-});
+import Contact from "./Contact";
 
 const DrawerHeader = styled("div")(({ theme }) => ({
   display: "flex",
@@ -71,9 +49,6 @@ const DrawerHeader = styled("div")(({ theme }) => ({
 function App() {
   const [appBarColor, setAppBarColor] = useState("transparent");
   const [drawerOpen, setDrawerOpen] = useState(false);
-  const [snackopen, setSnackOpen] = React.useState(false);
-  const [backOpen, setBackOpen] = React.useState(false);
-  const [contactView, setcontactView] = React.useState(false);
   const defaultTheme = createTheme();
   const theme = useTheme();
   const contactRef = useRef(null);
@@ -81,8 +56,6 @@ function App() {
   const skillsRef = useRef(null);
   const [isVisible, setIsVisible] = useState("hidden");
 
-
-  
   useEffect(() => {
     const handleScroll = () => {
       const elementTop = aboutRef.current.getBoundingClientRect().top;
@@ -90,20 +63,22 @@ function App() {
 
       if (elementTop < windowHeight * 0.75) {
         // Add the animation class when the element is 75% visible
-        aboutRef.current.classList.add('slide-in');
+        aboutRef.current.classList.add("slide-in");
       } else {
         // Remove the animation class when it's no longer in view
-        aboutRef.current.classList.remove('slide-in');
+        aboutRef.current.classList.remove("slide-in");
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
 
     // Cleanup event listener on component unmount
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
+  const [contactView, setcontactView] = React.useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -111,17 +86,17 @@ function App() {
       const windowHeight = window.innerHeight;
 
       if (elementTop < windowHeight * 0.75) {
-       setcontactView(true)
+        setcontactView(true);
       } else {
-        setcontactView(false)
+        setcontactView(false);
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
 
     // Cleanup event listener on component unmount
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
@@ -169,7 +144,13 @@ function App() {
     setDrawerOpen(!drawerOpen);
   };
 
-  const pages = ["About", "Skills", "Experience", "Education", "Activities", "Contact"];
+  const pages = [
+    "About",
+    "Skills",
+    "Experience",
+    "Education",
+    "Contact",
+  ];
 
   const ColorButton = styled(Button)(({ theme }) => ({
     color: "white",
@@ -181,13 +162,6 @@ function App() {
 
   const handleDrawerClose = () => {
     setDrawerOpen(false);
-  };
-
-  const handleSnackClose = (event, reason) => {
-    if (reason === "clickaway") {
-      return;
-    }
-    setSnackOpen(false);
   };
 
   const handleLinkedInClick = () => {
@@ -204,137 +178,32 @@ function App() {
 
   const handlePageClick = (page) => {
     if (page === "Contact" && contactRef.current) {
-      const formPosition = contactRef.current.offsetTop - 70; // Adjust as needed
+      const formPosition = contactRef.current.offsetTop - 65; // Adjust as needed
       window.scrollTo({ top: formPosition, behavior: "smooth" });
     } else if (page === "About" && aboutRef.current) {
       const formPosition = aboutRef.current.offsetTop - 100; // Adjust as needed
-      aboutRef.current.classList.add('slide-in');
+      aboutRef.current.classList.add("slide-in");
       window.scrollTo({ top: formPosition, behavior: "smooth" });
-    }else if (page === "Skills" && skillsRef.current) {
-      const formPosition = skillsRef.current.offsetTop - 100; // Adjust as needed
+    } else if (page === "Skills" && skillsRef.current) {
+      const formPosition = skillsRef.current.offsetTop - 60; // Adjust as needed
       window.scrollTo({ top: formPosition, behavior: "smooth" });
     }
-  }; 
-
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    subject: "",
-    message: "",
-  });
-
-  const [errors, setErrors] = useState({
-    name: "",
-    email: "",
-    subject: "",
-    message: "",
-  });
-
-  const handleChange = (fieldName, value) => {
-    setFormData((prevData) => ({
-      ...prevData,
-      [fieldName]: value,
-    }));
   };
-
-  const validate = () => {
-    let valid = true;
-    const newErrors = {};
-
-    // Validate Name
-    if (!formData.name.trim()) {
-      newErrors.name = "Name is required";
-      valid = false;
-    }
-
-    // Validate Email
-    if (!formData.email.trim()) {
-      newErrors.email = "Email is required";
-      valid = false;
-    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-      newErrors.email = "Invalid email format";
-      valid = false;
-    }
-
-    // Validate Subject
-    if (!formData.subject.trim()) {
-      newErrors.subject = "Subject is required";
-      valid = false;
-    }
-
-    // Validate Message
-    if (!formData.message.trim()) {
-      newErrors.message = "Message is required";
-      valid = false;
-    }
-
-    setErrors(newErrors);
-    return valid;
-  };
-
-  const handleSubmit = async (e) => {
-    if (validate()) {
-      e.preventDefault();
-      setBackOpen(true);
-      try {
-        const response = await fetch(
-          "https://jjbackend.onrender.com/api/send-email",
-          {
-            // const response = await fetch(" https://sore-gold-bison-wig.cyclic.app", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify(formData),
-          }
-        );
-
-        if (!response.ok) {
-          setBackOpen(false);
-          throw new Error(`HTTP error! Status: ${response.status}`);
-        } else {
-          // const responseText = await response.text();
-
-          setSnackOpen(true);
-          setBackOpen(false);
-        }
-      } catch (error) {
-        setBackOpen(false);
-        console.error("Error sending email", error);
-      }
-    } else {
-      console.log("Form validation failed");
-    }
-  };
-
-  const action = (
-    <React.Fragment>
-      <IconButton
-        size="small"
-        aria-label="close"
-        color="inherit"
-        onClick={handleSnackClose}
-      >
-        <CloseIcon fontSize="small" />
-      </IconButton>
-    </React.Fragment>
-  );
 
   const about = {
     title: "About",
     description:
-    "Hello! I'm Jaya Janyani, a tech enthusiast with a bachelor's degree in Information Technology from Solapur University, Maharashtra. Eager to contribute my skills in Bangalore/Pune.",
+      "Hello! I'm Jaya Janyani, a tech enthusiast with a bachelor's degree in Information Technology from Solapur University, Maharashtra. Eager to contribute my skills in either Bangalore/Pune.",
     image: img5,
     imageText: "main image description",
     linkText: "",
   };
 
- 
-  
   return (
     <ThemeProvider theme={defaultTheme}>
       <CssBaseline />
 
+      {/* AppBar Section */}
       <div style={{ backgroundColor: "black" }}>
         <Box sx={{ flexGrow: 1 }}>
           <AppBar
@@ -437,12 +306,14 @@ function App() {
         {/* Spacer to offset content under the fixed AppBar */}
         <Toolbar />
       </div>
-      {/* Parallax Section 1 */}
+      {/* AppBar Section end */}
+
+      {/* Profile Section */}
       <Parallax
         bgImage={img3}
         strength={300}
         style={{ marginTop: "-64px" }}
-        blur={1}
+        // blur={0}
       >
         <div
           style={{
@@ -453,18 +324,6 @@ function App() {
             alignItems: "center",
           }}
         >
-          {/* <Avatar
-            alt="Jaya Profile Pic"
-            src={img2}
-            style={{
-              width: 200,
-              height: 200,
-              marginTop: 80,
-             }}
-              className="ripple-effect"
-          >           
-          </Avatar> */}
-
           <div className="pulse">
             <img src={img2} alt="Jaya Profile Pic" className="static-image" />
             <span style={{ "--i": 0 }}></span>
@@ -522,234 +381,25 @@ function App() {
           <KeyboardDoubleArrowUpIcon />
         </Fab>
       </Parallax>
-
-      {/* <Container maxWidth="xl">
-        <div>
-          <Typography variant="h4" component="div" style={{ marginTop: 40 }}>
-            Regular Content Section
-          </Typography>
-          <p>Your regular content goes here.</p>
-        </div>
-      </Container> */}
+      {/* Profile Section end*/}
 
       {/* About Section */}
       <div ref={aboutRef} style={{ marginTop: 40 }} className="swipe-in">
         <About post={about} />
       </div>
-      
+
       {/* Skills Section */}
       <div ref={skillsRef} style={{ marginTop: 40 }}>
-        <Skills  />
+        <Skills />
       </div>
 
       {/* Contact Section */}
       <div ref={contactRef} style={{ marginTop: 50 }}>
-        <Parallax bgImage={img3} strength={300} blur={3}>
-          <Typography
-            variant="h4"
-            align="center"
-            style={{ color: "white", marginBottom: 30 }}
-          >
-            Feel free to contact me
-          </Typography>
-          <Grid
-            container
-            spacing={4}
-            justifyContent="center"
-            sx={{ marginBottom: 4 }}
-          >
-             <Zoom in={contactView} timeout={800}>
-            <Grid item xs={12} sm={8} md={5}>
-
-              <Card sx={{ display: "flex", height: "100%" }} className="zoom-in">
-                <CardContent>
-                  <form onSubmit={handleSubmit}>
-                    <TextField
-                      label="Name"
-                      fullWidth
-                      margin="normal"
-                      required
-                      helperText={errors.name}
-                      error={!!errors.name}
-                      sx={{
-                        "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline":
-                          {
-                            borderColor: "green",
-                          },
-                      }}
-                      InputProps={{
-                        startAdornment: (
-                          <InputAdornment position="start">
-                            {/* Your icon for Name field, e.g., PersonIcon */}
-                            {/* Replace PersonIcon with your desired icon component */}
-                            <PersonIcon />
-                          </InputAdornment>
-                        ),
-                      }}
-                      value={formData.name}
-                      onChange={(e) => handleChange("name", e.target.value)}
-                    />
-                    <TextField
-                      label="Email"
-                      fullWidth
-                      margin="normal"
-                      type="email"
-                      required
-                      helperText={errors.email}
-                      error={!!errors.email}
-                      sx={{
-                        "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline":
-                          {
-                            borderColor: "green",
-                          },
-                      }}
-                      InputProps={{
-                        startAdornment: (
-                          <InputAdornment position="start">
-                            {/* Your icon for Name field, e.g., PersonIcon */}
-                            {/* Replace PersonIcon with your desired icon component */}
-                            <EmailIcon />
-                          </InputAdornment>
-                        ),
-                      }}
-                      value={formData.email}
-                      onChange={(e) => handleChange("email", e.target.value)}
-                    />
-                    <TextField
-                      label="Subject"
-                      fullWidth
-                      margin="normal"
-                      required
-                      helperText={errors.subject}
-                      error={!!errors.subject}
-                      sx={{
-                        "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline":
-                          {
-                            borderColor: "green",
-                          },
-                      }}
-                      InputProps={{
-                        startAdornment: (
-                          <InputAdornment position="start">
-                            {/* Your icon for Name field, e.g., PersonIcon */}
-                            {/* Replace PersonIcon with your desired icon component */}
-                            <SubjectIcon />
-                          </InputAdornment>
-                        ),
-                      }}
-                      value={formData.subject}
-                      onChange={(e) => handleChange("subject", e.target.value)}
-                    />
-                    <TextField
-                      label="Message"
-                      fullWidth
-                      margin="normal"
-                      multiline
-                      rows={4}
-                      required
-                      helperText={errors.message}
-                      error={!!errors.message}
-                      sx={{
-                        "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline":
-                          {
-                            borderColor: "green",
-                          },
-                      }}
-                      InputProps={{
-                        startAdornment: (
-                          <InputAdornment position="start">
-                            {/* Your icon for Name field, e.g., PersonIcon */}
-                            {/* Replace PersonIcon with your desired icon component */}
-                            <MessageIcon />
-                          </InputAdornment>
-                        ),
-                      }}
-                      value={formData.message}
-                      onChange={(e) => handleChange("message", e.target.value)}
-                    />
-                    <div style={{ display: "flex", justifyContent: "center" }}>
-                      <ColorButton variant="contained" type="submit">
-                        Send
-                      </ColorButton>
-                    </div>
-                  </form>
-                </CardContent>
-              </Card>
-            </Grid>
-            </Zoom>
-            <Zoom in={contactView} timeout={800} style={{ transitionDelay: "300ms" }}>     
-            <Grid item xs={12} sm={8} md={5}>
-              <Card sx={{ display: "flex", height: "100%" }} className="zoom-in">
-                <CardActionArea>
-                  <CardMedia
-                    component="img"
-                    height="240"
-                    image={img4}
-                    alt="green iguana"
-                  />
-                  <CardContent>
-                    <div>
-                      <Typography
-                        variant="h6"
-                        sx={{ fontWeight: "bold", marginTop: 2 }}
-                      >
-                        Address:
-                      </Typography>
-                      <Typography variant="body2" color="text.secondary">
-                        House# 29/30, Cake Zone building, Cowlpete, Hosapete -
-                        583201, Karnataka, India
-                      </Typography>
-
-                      <Typography
-                        variant="h6"
-                        sx={{ fontWeight: "bold", marginTop: 2 }}
-                      >
-                        Mobile:
-                      </Typography>
-                      <Typography variant="body2" color="text.secondary">
-                        +91 - 8237106387
-                      </Typography>
-
-                      <Typography
-                        variant="h6"
-                        sx={{ fontWeight: "bold", marginTop: 2 }}
-                      >
-                        Email Id:
-                      </Typography>
-                      <Typography variant="body2" color="text.secondary">
-                        jayajanyani1592@gmail.com
-                      </Typography>
-                    </div>
-                  </CardContent>
-                </CardActionArea>
-              </Card>
-            </Grid>
-            </Zoom>
-          </Grid>
-        </Parallax>
+        <Contact contactView={contactView} />
       </div>
-      <Snackbar
-        open={snackopen}
-        autoHideDuration={6000}
-        onClose={handleSnackClose}
-        action={action}
-      >
-        <Alert
-          onClose={handleSnackClose}
-          severity="success"
-          sx={{ width: "100%" }}
-        >
-          Message sent
-        </Alert>
-      </Snackbar>
-      <Backdrop
-        sx={{ color: "#fff", zIndex: (theme) => theme.zIndex.drawer + 1 }}
-        open={backOpen}
-        // onClick={handleClose}
-      >
-        <CircularProgress color="inherit" />
-      </Backdrop>
+      {/* Contact Section end*/}
 
+      {/* Footer Section*/}
       <div
         style={{
           backgroundColor: "whitesmoke",
@@ -789,6 +439,7 @@ function App() {
         <p>Jaya Janyani</p>
         <p>&copy; My resume. All rights reserved.</p>
       </div>
+      {/* Footer Section end*/}
     </ThemeProvider>
   );
 }

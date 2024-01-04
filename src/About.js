@@ -12,7 +12,7 @@ function About(props) {
     <Paper
       sx={{
         position: "relative",
-        backgroundColor: "grey.800",
+        // backgroundColor: "grey.800",
         color: "#fff",
         mb: 4,
         backgroundSize: "cover",
@@ -45,30 +45,33 @@ function About(props) {
             sx={{
               position: "relative",
               p: { xs: 3, md: 6 },
-              pr: { md: 0 },
+              pr: { md: 15 },
             //   backgroundColor: 'rgba(0, 0, 0, 0.5)',
+            height:'100%',
             }}
           >
             <Typography
               component="h1"
               variant="h4"
               color="inherit"
-              style={{ color: "#3B7D23" }}
+              gutterBottom
+            //  style={{ color: "#3B7D23" }}
             >
               {post.title}
             </Typography>
-            <Typography variant="h6" gutterBottom color="inherit" paragraph  whiteSpace="pre-line">
+            <Typography variant="h7" gutterBottom color="inherit" paragraph  whiteSpace="pre-line" style={{ color: "#3B7D23", fontWeight: "bold", marginBottom: 50 ,textAlign:'justify'}}>
               {post.description}
             </Typography>
             <Typography
               component="h1"
               variant="h4"
               color="inherit"
-              style={{ color: "#3B7D23" }}
+              gutterBottom
+             // style={{ color: "#3B7D23" }}
             >
               Strengths
             </Typography>
-            <Typography variant="h6" color="inherit" paragraph  whiteSpace="pre-line">
+            <Typography variant="h7" color="inherit" paragraph  whiteSpace="pre-line" style={{ color: "#3B7D23", fontWeight: "bold" }}>
               Work ethic, Analytical, Organizational skills, Creativity, Time Management, Problem Solving, Proactive, Adabtability
             </Typography>
             {/* <Link variant="subtitle1" href="#">
@@ -82,8 +85,10 @@ function About(props) {
             sx={{
               position: "relative",
               p: { xs: 3, md: 6 },
-              pr: { md: 0 },
+              pr: { xs: 20, md: 20},
               backgroundColor: 'rgba(0, 0, 0, 0.6)',
+              height:'100%',
+              width:'100%',
             }}
             
           >
@@ -92,24 +97,24 @@ function About(props) {
               variant="h4"
               color="inherit"
               gutterBottom
-              style={{ color: "#3B7D23" }}
+            //  style={{ color: "#3B7D23" }}
             >
               Basic Information
             </Typography>
-            <Typography variant="h6" color="inherit" paragraph>
-              Date of Birth :       15th July, 1992
+            <Typography variant="h7" color="inherit" paragraph style={{ color: "#3B7D23", fontWeight: "bold" , marginBottom: 30}} >
+              Date of Birth : 15th July, 1992
             </Typography>
-            <Typography variant="h6" color="inherit" paragraph>
+            <Typography variant="h7" color="inherit" paragraph style={{ color: "#3B7D23", fontWeight: "bold" , marginBottom: 30}}>
               Sex : Female
             </Typography>
-            <Typography variant="h6" color="inherit" paragraph>
+            <Typography variant="h7" color="inherit" paragraph style={{ color: "#3B7D23" , fontWeight: "bold", marginBottom: 30}}>
               Marital Status : Married
             </Typography>
-            <Typography variant="h6" color="inherit" paragraph>
+            <Typography variant="h7" color="inherit" paragraph style={{ color: "#3B7D23", fontWeight: "bold" , marginBottom: 30 }}>
               Nationality : Indian
             </Typography>
-            <Typography variant="h6" color="inherit" paragraph whiteSpace="break-spaces">
-              Languages : English,Hindi,Marathi,Sindhi 
+            <Typography variant="h7" color="inherit" paragraph whiteSpace="break-spaces" style={{ color: "#3B7D23" , fontWeight: "bold", marginBottom: 30}}>
+              Known Languages : English, Hindi, Marathi, Sindhi 
             </Typography>
           </Box>
         </Grid>
