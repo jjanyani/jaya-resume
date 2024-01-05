@@ -36,6 +36,8 @@ import Fab from "@mui/material/Fab";
 import About from "./About";
 import Skills from "./Skills";
 import Contact from "./Contact";
+import Education from "./Education";
+import Experience from "./Experience";
 
 const DrawerHeader = styled("div")(({ theme }) => ({
   display: "flex",
@@ -54,6 +56,8 @@ function App() {
   const contactRef = useRef(null);
   const aboutRef = useRef(null);
   const skillsRef = useRef(null);
+  const educationRef = useRef(null);
+  const experienceRef = useRef(null);
   const [isVisible, setIsVisible] = useState("hidden");
 
   useEffect(() => {
@@ -186,6 +190,12 @@ function App() {
       window.scrollTo({ top: formPosition, behavior: "smooth" });
     } else if (page === "Skills" && skillsRef.current) {
       const formPosition = skillsRef.current.offsetTop - 60; // Adjust as needed
+      window.scrollTo({ top: formPosition, behavior: "smooth" });
+    }else if (page === "Education" && skillsRef.current) {
+      const formPosition = educationRef.current.offsetTop - 60; // Adjust as needed
+      window.scrollTo({ top: formPosition, behavior: "smooth" });
+    }else if (page === "Experience" && experienceRef.current) {
+      const formPosition = experienceRef.current.offsetTop - 60; // Adjust as needed
       window.scrollTo({ top: formPosition, behavior: "smooth" });
     }
   };
@@ -391,6 +401,16 @@ function App() {
       {/* Skills Section */}
       <div ref={skillsRef} style={{ marginTop: 40 }}>
         <Skills />
+      </div>  
+      
+      {/* Experience Section */}
+      <div ref={experienceRef} style={{ marginTop: 40 }}>
+        <Experience />
+      </div>
+      
+       {/* Education Section */}
+      <div ref={educationRef} style={{ marginTop: 40 }}>
+        <Education />
       </div>
 
       {/* Contact Section */}

@@ -18,7 +18,7 @@ function About(props) {
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
         backgroundPosition: "center",
-        backgroundImage:`url(${post.image})`,
+        backgroundImage: `url(${post.image})`,
       }}
     >
       {/* Increase the priority of the hero background image */}
@@ -46,8 +46,8 @@ function About(props) {
               position: "relative",
               p: { xs: 3, md: 6 },
               pr: { md: 15 },
-            //   backgroundColor: 'rgba(0, 0, 0, 0.5)',
-            height:'100%',
+              //   backgroundColor: 'rgba(0, 0, 0, 0.5)',
+              height: "100%",
             }}
           >
             <Typography
@@ -55,11 +55,26 @@ function About(props) {
               variant="h4"
               color="inherit"
               gutterBottom
-            //  style={{ color: "#3B7D23" }}
+              style={{
+                borderBottom: "5px solid #3B7D23",
+                borderRadius: "5px",
+                width: "70%",
+              }}
             >
               {post.title}
             </Typography>
-            <Typography variant="h7" gutterBottom color="inherit" paragraph  whiteSpace="pre-line" style={{ color: "#3B7D23", fontWeight: "bold", marginBottom: 50 ,textAlign:'justify'}}>
+            <Typography
+              variant="h7"
+              gutterBottom
+              color="inherit"
+              paragraph
+              whiteSpace="pre-line"
+              style={{
+                fontWeight: "bold",
+                marginBottom: 50,
+                textAlign: "justify",
+              }}
+            >
               {post.description}
             </Typography>
             <Typography
@@ -67,12 +82,23 @@ function About(props) {
               variant="h4"
               color="inherit"
               gutterBottom
-             // style={{ color: "#3B7D23" }}
+              style={{
+                borderBottom: "5px solid #3B7D23",
+                borderRadius: "5px",
+                width: "70%",
+              }}
             >
               Strengths
             </Typography>
-            <Typography variant="h7" color="inherit" paragraph  whiteSpace="pre-line" style={{ color: "#3B7D23", fontWeight: "bold" }}>
-              Work ethic, Analytical, Organizational skills, Creativity, Time Management, Problem Solving, Proactive, Adabtability
+            <Typography
+              variant="h7"
+              color="inherit"
+              paragraph
+              whiteSpace="pre-line"
+              style={{ fontWeight: "bold" }}
+            >
+              Work ethic, Analytical, Organizational skills, Creativity, Time
+              Management, Problem Solving, Proactive, Adabtability
             </Typography>
             {/* <Link variant="subtitle1" href="#">
               {post.linkText}
@@ -80,42 +106,112 @@ function About(props) {
           </Box>
         </Grid>
 
-        <Grid item md={6}>
+        {/* <Grid item md={6}>
           <Box
             sx={{
               position: "relative",
               p: { xs: 3, md: 6 },
-              pr: { xs: 20, md: 20},
-              backgroundColor: 'rgba(0, 0, 0, 0.6)',
-              height:'100%',
-              width:'100%',
+              pr: { xs: 15, md: 15 },
+              backgroundColor: "rgba(0, 0, 0, 0.6)",
+              height: "100%",
+              width: "100%",
             }}
-            
           >
             <Typography
               component="h1"
               variant="h4"
               color="inherit"
               gutterBottom
-            //  style={{ color: "#3B7D23" }}
+              style={{
+                borderBottom: "5px solid #3B7D23",
+                borderRadius: "5px",
+                width: "70%",               
+              }}
             >
               Basic Information
             </Typography>
-            <Typography variant="h7" color="inherit" paragraph style={{ color: "#3B7D23", fontWeight: "bold" , marginBottom: 30}} >
+            <Typography
+              variant="h7"
+              color="inherit"
+              paragraph
+              style={{ fontWeight: "bold", marginBottom: 30 }}
+            >
               Date of Birth : 15th July, 1992
             </Typography>
-            <Typography variant="h7" color="inherit" paragraph style={{ color: "#3B7D23", fontWeight: "bold" , marginBottom: 30}}>
+            <Typography
+              variant="h7"
+              color="inherit"
+              paragraph
+              style={{ fontWeight: "bold", marginBottom: 30 }}
+            >
               Sex : Female
             </Typography>
-            <Typography variant="h7" color="inherit" paragraph style={{ color: "#3B7D23" , fontWeight: "bold", marginBottom: 30}}>
+            <Typography
+              variant="h7"
+              color="inherit"
+              paragraph
+              style={{ fontWeight: "bold", marginBottom: 30 }}
+            >
               Marital Status : Married
             </Typography>
-            <Typography variant="h7" color="inherit" paragraph style={{ color: "#3B7D23", fontWeight: "bold" , marginBottom: 30 }}>
+            <Typography
+              variant="h7"
+              color="inherit"
+              paragraph
+              style={{ fontWeight: "bold", marginBottom: 30 }}
+            >
               Nationality : Indian
             </Typography>
-            <Typography variant="h7" color="inherit" paragraph whiteSpace="break-spaces" style={{ color: "#3B7D23" , fontWeight: "bold", marginBottom: 30}}>
-              Known Languages : English, Hindi, Marathi, Sindhi 
+            <Typography
+              variant="h7"
+              color="inherit"
+              paragraph
+              whiteSpace="break-spaces"
+              style={{ fontWeight: "bold", marginBottom: 30 }}
+            >
+              Known Languages : English, Hindi, Marathi, Sindhi
             </Typography>
+          </Box>
+        </Grid> */}
+
+        <Grid item md={6}>
+          <Box
+            sx={{
+              position: "relative",
+              p: { xs: 3, md: 6 },
+              pr: { xs: 20, md: 20 },
+                backgroundColor: 'rgba(0, 0, 0, 0.5)',
+              height: "100%",
+              width: "100%",
+            }}
+          >
+            <Typography
+              component="h1"
+              variant="h4"
+              color="inherit"
+              gutterBottom
+              style={{
+                borderBottom: "5px solid #3B7D23",
+                borderRadius: "5px",
+              }}
+            >
+              Basic Information
+            </Typography>
+            <Typography
+              variant="h7"
+              gutterBottom
+              color="inherit"
+              paragraph
+              whiteSpace="pre-line"
+              style={{
+                fontWeight: "bold",
+                marginBottom: 50,
+                textAlign: "justify",
+              }}
+            >
+              {"Date of Birth : 15th July, 1992\n\nSex : Female\n\nMarital Status : Married\n\nNationality : Indian\n\nLanguages : English, Hindi, Marathi, Sindhi"}
+            </Typography>
+           
           </Box>
         </Grid>
       </Grid>
