@@ -65,16 +65,19 @@ function Experience() {
                 <Typography sx={{ fontSize: 14 }} color="text.secondary">
                   MEPZ, Tambaram, Chennai, TamilNadu
                 </Typography>
+                <Typography color="text.secondary">
+                  10th Feb 2015 - 31st August 2016
+                </Typography>
                 <Typography sx={{ mb: 1.5 , fontWeight:'bold'}} color="text.secondary">
-                  10th Feb 2015 till 31st August 2016 (1.6 years)
+                   (1.6 years)
                 </Typography>
                 <Typography sx={{ fontWeight: "bold" }} whiteSpace="pre-line">
-                  {"Role: Programmer Analyst\n\n"}
+                  {"Role : Programmer Analyst (.Net Technology)\n\n\n"}
                 </Typography>
 
                 {showDetails && (
                   <Typography sx={{ textAlign: "left", fontSize: 13 }}>
-                    <strong>Roles and Responsibilities:</strong>
+                    <strong>Roles and Responsibilities :</strong>
                     <ul>
                       <li>
                         Certified in .NET Technology and SQL through rigorous
@@ -101,7 +104,7 @@ function Experience() {
                       </li>
                       <li>
                         Nominated and Proud Recipient of the 'Delivery
-                        Excellence
+                        Excellence' award.
                       </li>
                     </ul>
                   </Typography>
@@ -132,16 +135,19 @@ function Experience() {
                 <Typography sx={{ fontSize: 14 }} color="text.secondary">
                   MJ Nagar, Hosapete, Karnataka
                 </Typography>
+                <Typography color="text.secondary">
+                  1st April 2017 - Present
+                </Typography> 
                 <Typography sx={{ mb: 1.5, fontWeight:'bold' }} color="text.secondary">
-                  1st April 2017 till date (7 years)
+                  (7 years)
                 </Typography>
                 <Typography sx={{ fontWeight: "bold" }} whiteSpace="pre-line">
-                  {"Role: Senior Technical Consultant(.Net Developer)\n\n"}
+                  {"Role : Senior Technical Consultant (.Net Technology)\n\n\n"}
                 </Typography>
 
                 {showDetails1 && (
                   <Typography sx={{ textAlign: "left", fontSize: 13  }}>
-                    <strong>Roles and Responsibilities:</strong>
+                    <strong>Roles and Responsibilities :</strong>
                     <ul>
                       <li>
                         Installed and customized xFlow software globally on
