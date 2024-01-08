@@ -210,7 +210,7 @@ function About(props) {
                 width:'100%'
               }}
             >
-              {"Date of Birth : 15th July, 1992\n\nSex : Female\n\nMarital Status : Married\n\nNationality : Indian\n\nLanguages : English,Hindi,Marathi,Sindhi"}
+              {"Date of Birth : 15th July, 1992\n\nSex : Female\n\nMarital Status : Married\n\nNationality : Indian\n\nLanguages : English, Hindi, Marathi, Sindhi"}
             </Typography>
            
           </Box>
