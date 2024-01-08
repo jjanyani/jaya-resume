@@ -148,13 +148,7 @@ function App() {
     setDrawerOpen(!drawerOpen);
   };
 
-  const pages = [
-    "About",
-    "Skills",
-    "Experience",
-    "Education",
-    "Contact",
-  ];
+  const pages = ["About", "Skills", "Experience", "Education", "Contact"];
 
   const ColorButton = styled(Button)(({ theme }) => ({
     color: "white",
@@ -191,10 +185,10 @@ function App() {
     } else if (page === "Skills" && skillsRef.current) {
       const formPosition = skillsRef.current.offsetTop - 60; // Adjust as needed
       window.scrollTo({ top: formPosition, behavior: "smooth" });
-    }else if (page === "Education" && skillsRef.current) {
+    } else if (page === "Education" && skillsRef.current) {
       const formPosition = educationRef.current.offsetTop - 60; // Adjust as needed
       window.scrollTo({ top: formPosition, behavior: "smooth" });
-    }else if (page === "Experience" && experienceRef.current) {
+    } else if (page === "Experience" && experienceRef.current) {
       const formPosition = experienceRef.current.offsetTop - 60; // Adjust as needed
       window.scrollTo({ top: formPosition, behavior: "smooth" });
     }
@@ -401,14 +395,14 @@ function App() {
       {/* Skills Section */}
       <div ref={skillsRef} style={{ marginTop: 40 }}>
         <Skills />
-      </div>  
-      
+      </div>
+
       {/* Experience Section */}
       <div ref={experienceRef} style={{ marginTop: 40 }}>
         <Experience />
       </div>
-      
-       {/* Education Section */}
+
+      {/* Education Section */}
       <div ref={educationRef} style={{ marginTop: 40 }}>
         <Education />
       </div>
@@ -456,8 +450,31 @@ function App() {
             <InstagramIcon />
           </IconButton>
         </Stack>
-        <p>Jaya Janyani</p>
-        <p>&copy; My resume. All rights reserved.</p>
+        <Typography
+          variant="body1"
+          style={{
+            fontFamily: "Montserrat, sans-serif",
+            lineHeight: 1.6,
+            color: "#333",
+            marginBottom: "20px",
+          }}
+        >
+          "Thank You for Exploring My Portfolio! I'm grateful for your visit to
+          my personal space on the web. It means a lot to me that you took the
+          time to explore my work and experiences. If you have any questions,
+          want to connect, or just share your thoughts, feel free to reach out.
+          Your interest and support are truly appreciated.
+        </Typography>
+        <Typography
+          variant="body1"
+          style={{
+            fontFamily: "Montserrat, sans-serif",
+            color: "#333",
+            marginBottom: 0,
+          }}
+        >
+          &copy; Created by Jaya Janyani. All rights reserved.
+        </Typography>
       </div>
       {/* Footer Section end*/}
     </ThemeProvider>

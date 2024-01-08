@@ -102,7 +102,7 @@ function Education() {
           </Typography>
           <Typography style={{
                 color:'#3B7D23',
-              }}>Bachelor's Degree in Information Technoloy from Solapur University, Walchand Institute of Technology, Solapur, with 79.50%</Typography>
+              }}>Bachelor's Degree in Information Technoloy from Solapur University, Walchand Institute of Technology, Solapur, with 66.24%</Typography>
         </TimelineContent>
       </TimelineItem>
     </Timeline>

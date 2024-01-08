@@ -174,7 +174,7 @@ function About(props) {
           </Box>
         </Grid> */}
 
-        <Grid item md={6}>
+        <Grid item xs={12} md={6}>
           <Box
             sx={{
               position: "relative",
@@ -207,6 +207,7 @@ function About(props) {
                 fontWeight: "bold",
                 marginBottom: 50,
                 textAlign: "justify",
+                width:'100%'
               }}
             >
               {"Date of Birth : 15th July, 1992\n\nSex : Female\n\nMarital Status : Married\n\nNationality : Indian\n\nLanguages : English, Hindi, Marathi, Sindhi"}
