@@ -197,7 +197,7 @@ function App() {
   const about = {
     title: "About",
     description:
-      "Hello! I'm Jaya Janyani, a tech enthusiast with a bachelor's degree in Information Technology from Solapur University, Maharashtra. Eager to contribute my skills in either Bangalore/Pune.",
+      "Hello! I'm Jaya Janyanii, a tech enthusiast with a bachelor's degree in Information Technology from Solapur University, Maharashtra. Eager to contribute my skills in either Bangalore/Pune.",
     image: img5,
     imageText: "main image description",
     linkText: "",
