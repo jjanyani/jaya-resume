@@ -3,7 +3,7 @@ import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import img5 from "./images/parallax3.jpg";
-import img1 from "./images/skills1.png";
+import img1 from "./images/skills1.jpg";
 import img2 from "./images/skills2.png";
 import img3 from "./images/skills3.png";
 import img4 from "./images/skills4.png";
@@ -24,15 +24,15 @@ function Skills() {
   }, [isSmallScreen]);
 
   const slides = [
-    { image: img1, text: "VB.Net : 8 Years" },
-    { image: img2, text: "SQL : 8 Years" },
-    { image: img8, text: "OCR : 8 Years" },
-    { image: img3, text: "HTML, CSS & JavaScript : 5 Years" },
-    { image: img9, text: "Material UI : 3 Years" },
-    { image: img10, text: "Materialize CSS : 3 Years" },
-    { image: img4, text: "React JS : 2 Years" },
-    { image: img6, text: "Node JS : 2 Years" },
-    { image: img7, text: "Mongo DB : 2 Years" },
+    { image: img1, text: "ASP.Net MVC, WCF, WPF, C#, VB.Net : 7 Years" },
+    { image: img2, text: "SQL Server : 7 Years" },    
+    { image: img3, text: "HTML, CSS & JavaScript : 6 Years" },
+    { image: img9, text: "Material UI : 6 Years" },
+    { image: img10, text: "Materialize CSS : 6 Years" },
+    { image: img4, text: "React JS : 4 Years" },
+    { image: img6, text: "Node JS : 4 Years" },
+    { image: img7, text: "Mongo DB : 4 Years" },
+    { image: img8, text: "OCR : 7 Years" },
   ];
   const settings = {
     animation: "slide",

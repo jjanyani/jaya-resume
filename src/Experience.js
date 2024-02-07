@@ -68,9 +68,9 @@ function Experience() {
                 <Typography color="text.secondary">
                   10th Feb 2015 - 31st August 2016
                 </Typography>
-                <Typography sx={{ mb: 1.5 , fontWeight:'bold'}} color="text.secondary">
+                {/* <Typography sx={{ mb: 1.5 , fontWeight:'bold'}} color="text.secondary">
                    (1.6 years)
-                </Typography>
+                </Typography> */}
                 <Typography sx={{ fontWeight: "bold" }} whiteSpace="pre-line">
                   {"Role : Programmer Analyst (.Net Technology)\n\n\n"}
                 </Typography>
@@ -138,9 +138,9 @@ function Experience() {
                 <Typography color="text.secondary">
                   1st April 2017 - Present
                 </Typography> 
-                <Typography sx={{ mb: 1.5, fontWeight:'bold' }} color="text.secondary">
+                {/* <Typography sx={{ mb: 1.5, fontWeight:'bold' }} color="text.secondary">
                   (7 years)
-                </Typography>
+                </Typography> */}
                 <Typography sx={{ fontWeight: "bold" }} whiteSpace="pre-line">
                   {"Role : Senior Technical Consultant (.Net Technology)\n\n\n"}
                 </Typography>

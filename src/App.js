@@ -113,7 +113,7 @@ function App() {
 
   const handleDownload = () => {
     const cvUrl =
-      "https://drive.google.com/file/d/1O2gLXtu2PWnlztJDDwDqwcn74YoZPU39/view?usp=drive_link";
+      "https://drive.google.com/file/d/12Kl9JQBZFJCdeCnFEzG5LoOwMkba-Qzm/view?usp=drive_link";
 
     // Open the CV file in a new tab
     window.open(cvUrl, "_blank");

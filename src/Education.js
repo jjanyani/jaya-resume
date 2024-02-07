@@ -68,7 +68,7 @@ function Education() {
           </Typography>
           <Typography  style={{
                 color:'#3B7D23',
-              }}>10th Grade from Pune Board, Little Flower Convent High School, Solapur, with 81.38%</Typography>
+              }}>10th Grade from Pune Board, Little Flower Convent High School, Solapur, with <span style={{ color: 'white' }}>81.38%</span></Typography>
         </TimelineContent>
       </TimelineItem>
       <TimelineItem>
@@ -85,7 +85,7 @@ function Education() {
           </Typography>
           <Typography style={{
                 color:'#3B7D23',
-              }}>12th Grade from Pune Board, Walchand College of Arts & Science, Solapur, with 79.50%</Typography>
+              }}>12th Grade from Pune Board, Walchand College of Arts & Science, Solapur, with <span style={{ color: 'white' }}>79.50%</span></Typography>
         </TimelineContent>
       </TimelineItem>
       <TimelineItem>
@@ -102,7 +102,7 @@ function Education() {
           </Typography>
           <Typography style={{
                 color:'#3B7D23',
-              }}>Bachelor's Degree in Information Technoloy from Solapur University, Walchand Institute of Technology, Solapur, with 66.24%</Typography>
+              }}>Bachelor's Degree in Information Technoloy from Solapur University, Walchand Institute of Technology, Solapur, with <span style={{ color: 'white' }}>66.24%</span></Typography>
         </TimelineContent>
       </TimelineItem>
     </Timeline>
