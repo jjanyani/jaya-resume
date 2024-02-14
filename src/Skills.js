@@ -24,7 +24,7 @@ function Skills() {
   }, [isSmallScreen]);
 
   const slides = [
-    { image: img1, text: "ASP.Net MVC, WCF, WPF, C#, VB.Net : 7 Years" },
+    { image: img1, text: "ASP.Net Core MVC, WCF, WPF, C#, VB.Net : 7 Years" },
     { image: img2, text: "SQL Server : 7 Years" },    
     { image: img3, text: "HTML, CSS & JavaScript : 6 Years" },
     { image: img9, text: "Material UI : 6 Years" },
